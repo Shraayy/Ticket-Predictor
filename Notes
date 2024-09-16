@@ -1,0 +1,30 @@
+- Problem
+    Businesses often use simulations to help predict the effects of different decisions they can make.
+    Help a movie theater build a simulation to optimize its showing. Use composition to represent a movie
+    screening as a movie paired with a screen.
+
+
+- Output
+    * List of all the movie showings in the day
+    * Simulation of how much revenue (money) each showing made
+    * The total revenue of the day's showings
+- Requirements
+    * Create a MovieShowing composite class that contains Movie and Screen components
+        ~ Note that ticket_predictor.py passes in time, screen, and movie parameters, in that order, on line 57
+    * Define a cost property that finds the ticket cost for the showing
+        ~ See "Cost Formula" section for details
+    * Define a simulate method that returns revenue for the showing by making Customer instances
+        ~nSee "Revenue Simulation Formula" section for details
+    * Define __lt__ and __str__ magic methods to allow for sorting and listing the screenings
+
+- Cost Formula
+    * A ticket costs $10
+    * Tickets for movies starting 6:00 or later cost an extra $2
+    * Tickets for 3D movies (where both the screen and movie have 3D) cost an extra $3
+
+- Revenue Simulation Formula
+    * Create as many Customer instances as the given number of total customers
+    * A customer will NOT see a movie if their age is not old enough for its rating (13+ for PG-13, 17+ for R)
+    * A customer will only see a movie if its genre is in their list of genres_liked
+    * Otherwise, the chance of a customer seeing a movie is equal to the movie's popularity (e.g. 0.6 means 60% chance)
+    * There cannot be more customers attending a movie than the Screen's capacity
